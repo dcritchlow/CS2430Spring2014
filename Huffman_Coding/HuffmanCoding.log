@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.12.11)  10 APR 2014 10:34
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.12.11)  10 APR 2014 10:49
 entering extended mode
  %&-line parsing enabled.
 **HuffmanCoding.tex
@@ -18,31 +18,66 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 (/home/darin/texmf/tex/latex/fullpage/fullpage.sty
 Package: fullpage 1999/02/23 1.1 (PWD)
 \FP@margin=\skip41
-)
-! Illegal parameter number in definition of \assignmentDescription.
-<to be read again> 
-                   2
-l.16 ...hy was there much of a difference?, etc.)}
-                                                  
-? \end
-Type <return> to proceed, S to scroll future error messages,
-R to run without stopping, Q to run quietly,
-I to insert something, E to edit your file,
-1 or ... or 9 to ignore the next 1 to 9 tokens of input,
-H for help, X to quit.
-? x
- 
+) (./HuffmanCoding.aux)
+\openout1 = `HuffmanCoding.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--26
+
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 27.
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./HuffmanCoding.aux) ) 
 Here is how much of TeX's memory you used:
- 156 strings out of 495061
- 1709 string characters out of 1182620
- 45108 words of memory out of 3000000
- 3419 multiletter control sequences out of 15000+50000
- 3938 words of font info for 15 fonts, out of 3000000 for 9000
+ 185 strings out of 495061
+ 2057 string characters out of 1182620
+ 47127 words of memory out of 3000000
+ 3433 multiletter control sequences out of 15000+50000
+ 7021 words of font info for 26 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 22i,0n,19p,245b,36s stack positions out of 5000i,500n,10000p,200000b,50000s
-No pages of output.
+ 22i,4n,19p,252b,105s stack positions out of 5000i,500n,10000p,200000b,50000s
+</u
+sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/te
+xmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/
+fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-texlive/fonts/type1
+/public/amsfonts/cm/cmtt12.pfb>
+Output written on HuffmanCoding.pdf (1 page, 46329 bytes).
 PDF statistics:
- 0 PDF objects out of 1000 (max. 8388607)
+ 22 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
