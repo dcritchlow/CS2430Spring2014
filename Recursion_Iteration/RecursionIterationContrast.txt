@@ -1,0 +1,149 @@
+﻿Recursion/Iteration Contrast
+Darin Critchlow
+CSIS 2430-001
+
+
+Objective:
+Compare/contrast Recursion and Iterative methods.  Implement Fibonacci (Algorithms 7/8) and report which one performs better.  Also, implement Algorithm 4 (pg 363) and reimplement the problems solved in the Modular Exponentiation assignment.  Compare/contrast.
+Compare / Contrast:
+Recursive functions start with a base case and must simplify the problem each time until it converges on the base case. Recursion can use more memory and take more processor time to complete. 
+The Fibonacci algorithm that performed the best was the iterative form, Algorithm 8. The recursive function was slower but is a much simpler function. The recursive Fibonacci algorithm requires addition to be performed after the recursive calls are made. This type of recursion is called binary recursion. Binary recursion does not allow the benefits of recursion to be faster than the iterative form due to the necessary memory allocation for the two recursive calls at the end of the function, which allowed the iterative form of Fibonacci to perform faster. 
+A linear recursive function is a function that only makes a single call to itself each time the function runs. 1 In computer science, a tail call is a subroutine call that happens inside another procedure as its final action; it may produce a return value which is then immediately returned by the calling procedure.2 Tail recursion is a very fast form of linear recursion. Tail recursion is where the last thing the function does is the call to itself. When a tail-recursive function is used it allows optimization because there is no need to add to the call stack for additional operations.
+
+
+
+
+1. Sparknotes.com. SparkNotes: What is Recursion?: Types of Recursion. [Online] Available from: http://www.sparknotes.com/cs/recursion/whatisrecursion/section2.rhtml [Accessed 20 Feb 2014].
+2. Wikipedia. Tail call. [Online] Available from: http://en.wikipedia.org/wiki/Tail_call [Accessed 20 Feb 2014].
+The Modular Exponentiation algorithm that performed the best was the recursive form, Algorithm 4. This function is a tail recursive function. This allowed for the slight faster time performance over the iterative form. The iterative form was very close in speed to the recursive function and the iterative function is easier to understand. 
+Python allows you to program functionally, object oriented, and imperatively. Python is not set up to specifically optimize tail recursive functions like most functional programming languages are even though there was a slight performance benefit to the Modular Exponentiation function. Many times functional programming language compilers optimize tail recursion into machine code JUMP statements allowing very efficient performance. 
+I believe that with the Modular Exponentiation tail recursive function it allowed performance gains over the iterative function even though it gave a less readable and understandable function. The difference between the two in speed was very small and I would probably keep using the iterative function unless it was absolutely necessary. If I were to use a Fibonacci function I would definitely use the iterative version because the speed difference is large. I was surprised to learn that recursive functions do not necessarily add speed which I had assumed was always the case. They can prove to be a simple and efficient way to implement functions but in Python I think most times it is going to prove better to use an iterative form. 
+
+
+What Worked:
+Both of the different forms of functions worked. 
+What Didn’t Work:
+Everything worked
+Comments:
+I assumed before starting this assignment that the recursive versions would have a speed advantage always over iterative functions. I was surprised to see that it is not always the case. It helped me remember to always compare/contrast functions to find the best implementation. 
+
+
+
+
+Code:
+# =========================================================================== 
+#    Imports
+# =========================================================================== 
+
+
+import timeit
+
+
+# =========================================================================== 
+#    Functions
+# =========================================================================== 
+
+
+''' Recursive Fibonacci '''
+def fibonacci(number):
+    if number == 0:
+        return 0
+    elif number == 1:
+        return 1
+    else:
+        return fibonacci(number - 1) + fibonacci(number - 2)
+
+
+''' Iterative Fibonacci '''
+def iterative_fibonacci(number):
+    if number == 0:
+        return 0
+    else:
+        x,y = 0,1
+        for i in xrange(1, number):
+            z = x + y
+            x,y = y,z
+        return y
+
+
+''' Expand number to base "b" '''
+def base_expansion(n, b):
+    q = n
+    a = []
+    while q != 0:
+        a.append(q % b)
+        q = q // b
+    return a
+
+
+''' Calculates Modular Exponentiation for base 2 Iteratively '''
+def modular_exponentiation(b, n, m):
+    a = base_expansion(n, 2) # calculate for base 2
+    x = 1
+    power = b % m
+    for i in range(0, len (a)):
+        if a[i] == 1:
+            x = (x * power) % m
+        power = (power * power) % m
+    return x
+
+
+''' Recursive Modular Exponentiation '''
+def recursive_modular_exponentiation(b,n,m):
+    if n == 0:
+        return 1
+    elif n % 2 == 0:
+        return recursive_modular_exponentiation(b, n//2, m)**2 % m
+    else:
+        return (recursive_modular_exponentiation(b, n//2, m)**2 % m*b % m) % m
+
+
+# =========================================================================== 
+#    Main
+# =========================================================================== 
+
+
+if __name__ == '__main__':
+
+
+    t1 = timeit.Timer('a = 20; fibonacci(a)','from __main__ import fibonacci')
+    t2 = timeit.Timer('a = 20; iterative_fibonacci(a)','from __main__ import iterative_fibonacci')
+
+
+    print '\n Find Fibonacci number for "20"'
+    print '\n       Recursive:', fibonacci(20)
+    print '\n       Iterative:', iterative_fibonacci(20)
+
+
+    print '\nRecursive Fibonacci time:', min(t1.repeat(3,10))
+    print '\nIterative Fibonacci time:', min(t2.repeat(3,10))
+
+
+    print '\n Find 7^644 mod 645'
+    print '\n       Recursive:',recursive_modular_exponentiation(7,644,645)
+    print '\n       Iterative:',modular_exponentiation(7,644,645)
+
+
+    print '\n Find 11^644 mod 645'
+    print '\n       Recursive:',recursive_modular_exponentiation(11,644,645)
+    print '\n       Iterative:',modular_exponentiation(11,644,645)
+
+
+    print '\n Find 3^2003 mod 99'
+    print '\n       Recursive:',recursive_modular_exponentiation(3,2003,99)
+    print '\n       Iterative:',modular_exponentiation(3,2003,99)
+
+
+    print '\n Find 123^1001 mod 101'
+    print '\n       Recursive:',recursive_modular_exponentiation(123,1001,101)
+    print '\n       Iterative:',modular_exponentiation(123,1001,101)
+
+
+
+
+    t3 = timeit.Timer('b=3;n=644;m=645; recursive_modular_exponentiation(b,n,m)','from __main__ import recursive_modular_exponentiation')
+    t4 = timeit.Timer('b=3;n=644;m=645; modular_exponentiation(b,n,m)','from __main__ import modular_exponentiation')
+
+
+    print '\nRecursive Modular Exponentiation time:', min(t3.repeat(3,10))
+    print '\nIterative Modular Exponentiation time:', min(t4.repeat(3,10))

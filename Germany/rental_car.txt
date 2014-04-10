@@ -1,0 +1,2 @@
+diesel_fuel_cost_liter,petrol_fuel_cost_liter,diesel_mpl,petrol_mpl,rental_diesel_per_day,rental_petrol_per_day
+1.37,1.49,13,22,85.71,100

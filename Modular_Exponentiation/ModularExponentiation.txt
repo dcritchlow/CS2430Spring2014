@@ -1,0 +1,72 @@
+﻿Modular Exponentiation
+Darin Critchlow
+CSIS 2430-001
+
+
+Objective:
+Implement Modular Exponentiation.  You will need Algorithms 1 & 5 from Chapter 4. Your algorithm will need to solve problems 25-28 on page 255.
+25. Use Algorithm 5 to find 7644 mod 645.
+26. Use Algorithm 5 to find 11644 mod 645.
+27. Use Algorithm 5 to find 32003 mod 99.
+28. Use Algorithm 5 to find 1231001 mod 101.
+What Worked:
+The pseudocode from the book was easily implemented into python code.
+What Didn’t Work:
+In the ALGORITHM 5 pseudocode I struggled at first to realize that it wanted you to use ALGORITHM 1 with base 2.
+Comments:
+It was rewarding to read and study the math and to walk through EXAMPLE 12 until I completely understood what the sequence was doing. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Code:
+
+
+""" ALGORITHM 1 """
+def base_expansion(n, b):
+    q = n
+    a = []
+    while q != 0:
+        a.append(q % b)
+        q = q // b
+    return a
+
+
+""" ALGORITHM 5 Calculates Modular Exponentiation for base 2 """
+def modular_exponentiation(b, n, m):
+    a = base_expansion(n, 2) # calculate for base 2
+    x = 1
+    power = b % m
+    for i in range(0, len (a)):
+        if a[i] == 1:
+            x = (x * power) % m
+        power = (power * power) % m
+    return x
+
+
+if __name__ == '__main__':
+    print 'Modular Exponentiation:\n'
+    b = input('Enter starting integer eg. "3" in "3^644 mod 645"\n')
+    n = input('Enter power integer eg. "644" in "3^644 mod 645"\n')
+    m = input('Enter mod integer eg. "645" in "3^644 mod 645"\n')
+
+
+print '\nAnswer is: ',modular_exponentiation(b,n,m)

@@ -1,0 +1,6 @@
+departing_airport,arriving_airport,num_stops,connecting_airport, duration_minutes,cost_dollars,cost_euro,distance_miles,distance_km,km_euros, numb_passengers
+BNA,ORD,1,CVG,317,118,85.61,494,795,9.29,3
+ORD,FRA,1,IST,970,516,374.21,6630,10670,28.51,5
+ORD,STR,1,IST,975,524,380.01,6560,10550,27.76,5
+ORD,MUC,1,IST,975,516,374.21,6446,10370,27.71,5
+ORD,TXL,1,IST,940,516,374.21,6550,10540,28.16,5

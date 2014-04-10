@@ -1,0 +1,9 @@
+Implement Huffman Coding
+1. Use this file: Metamorphosis.txt
+2. Convert the file to binary and measure the size.
+3. Implement Huffman Coding to compress the file. (You will calculate the frequencies of all punctuations, etc., build a tree, then use the tree to compress the file (remember, it will be in BINARY - LEAVE IT in this format.)
+4. Measure the newly compressed file.
+5. Answer the question: What is the delta shrinkage (Entropy) from the first file to the second?
+6. Use the frequencies found on page 771 #27 and reimplement.
+7. Measure the compression again.
+8. Compare/contrast (what did you find?, why was there much of a difference?, etc.)

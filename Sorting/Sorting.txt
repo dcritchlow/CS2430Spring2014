@@ -1,0 +1,157 @@
+﻿Sorting
+Darin Critchlow
+CSIS 2430-001
+
+
+Objective:
+Implement (3) sorting algorithms - Quicksort, Bubblesort and "roll-your-own".  You will generate 1000 random numbers between 1 and 10000, place them in a data structure of your own choosing, implement all 3 sorting algorithms, and time/compare them. I want at least a 1-page write-up regarding your results.  Bonus points if your "own" algorithm does better than the other two.
+What Worked:
+Quick sort was the quickest. I was surprised to see how much slower the Bubblesort was. I had fun implementing the timeit module in python and it was fun debugging the setup code for that module to make sure that they each were using the same unsorted list each time. 
+What Didn’t Work:
+When I first was testing the time for each function the Bubblesort was showing a faster time than the Quicksort. What I found was that since the Quicksort was the first function to run and then the list that was being passed to Bubblesort was already sorted. I didn’t realize that I had to do more setup in the timeit constructor to make the functions use the same unsorted list. 
+Comments:
+I liked writing the pseudocode for the algorithms fun to implement. I struggled for a while trying to implement my own sorting algorithm.
+
+
+
+
+
+
+
+
+
+
+
+
+Code:
+def quickSort(myList):
+    # print myList
+    lowerList = []
+    pivotList = []
+    higherList = []
+
+
+    if len(myList) <= 1:
+        return myList
+    else:
+        pivotNumber = myList[0]
+        for i in myList:
+            if i < pivotNumber:
+                lowerList.append(i)
+            elif i > pivotNumber:
+                higherList.append(i)
+            else:
+                pivotList.append(i)
+        # print lowerList + pivotList + higherList
+        lowerList = quickSort(lowerList)
+        higherList = quickSort(higherList)
+    return lowerList + pivotList + higherList
+
+
+def bubbleSort(myList):
+    # print myList
+    swapped = True
+    while swapped:
+        swapped = False
+        for i in range(len(myList)-1):
+            if myList[i] > myList[i+1]:
+                myList[i], myList[i+1] = myList[i+1], myList[i]
+                swapped = True
+    return myList
+
+
+def mySort(myList):
+    b = list()
+    while myList != sorted and len(myList) > 0:
+        for i in myList:
+            minimum = min(myList)
+            index = myList.index(minimum)
+            b.append(minimum)
+            myList.pop(index)
+    return b
+
+
+if __name__ == '__main__':
+    import timeit
+    import random
+
+
+    unsortedList = random.sample(range(1,10001), 1000)
+    print 'Unsorted List: \n', unsortedList
+
+
+    t1 = timeit.Timer('a = unsortedList[:]; quickSort(a)','from __main__ import quickSort, unsortedList')
+    t2 = timeit.Timer('a = unsortedList[:]; bubbleSort(a)','from __main__ import bubbleSort, unsortedList')
+    t3 = timeit.Timer('a = unsortedList[:]; mySort(a)','from __main__ import mySort, unsortedList')
+
+
+    print '\nQuick Sort time: ', min(t1.repeat(7,10))
+    print '\nBubble Sort time: ', min(t2.repeat(7,10))
+    print '\nMy Sort time: ', min(t3.repeat(7,10))
+
+
+    print "\nI'm sorted now: \n", quickSort(unsortedList)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Quicksort algorithm, invented by Tony Hoare, is the fastest known comparison-based sorting algorithm.1 It requires Ο(n log n) steps and it is a recursive algorithm. It first starts by partitioning the data which is where the bulk of the work is performed. It takes a “pivot” number and arranges all of the data into groups that are lower than the “pivot” number and higher than the “pivot” number. Then you make recursive calls on each of the groups until you have a sorted data set. The worst case scenario for quicksort is a slow n2 which is with an already sorted data set. 
+        Bubblesort is a simple comparison sort that steps through the data and repeatedly compares each two numbers to see if the adjacent one is bigger and if so then the elements are swapped. It repeatedly goes through the list until there are no more swaps to be made which leaves a sorted list. The algorithm gets its name from the way smaller elements “bubble” to the top of the list. 2 It has a worst case and average complexity of Ο(n2).
+        The sort method that I chose to implement was an algorithm that used Python’s built in function min() that has a complexity of Ο(n) 3 and then I append it to a new list which append() has a complexity Ο(1) 3 and then it pops it from the original list and pop() has a complexity of Ο(1) 3. All of these are inside of a for loop that has a complexity of Ο(n). This totals to give my function a complexity of Ο(n2). When I was coming up with a sorting implementation of my own I struggled to not search on the internet and to just think about how I would go about sorting a data list. 
+
+
+1 . "Quicksort." -- from Wolfram MathWorld. N.p., n.d. Web. 2 Feb. 2014. <http://mathworld.wolfram.com/Quicksort.html>.
+2. "Bubble sort." Princeton University.N.p.,n.d. Web. 2 Feb. 2014. <https://www.princeton.edu/~achaney/tmve/wiki100k/docs/Bubble_sort.html>
+3. "Python wiki." TimeComplexity. N.p., n.d. Web. 2 Feb. 2014. <https://wiki.python.org/moin/TimeComplexity>.
