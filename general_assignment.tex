@@ -1,0 +1,67 @@
+% <filename>.tex
+\documentclass[12pt,letterpaper]{letter}
+\usepackage{fullpage,color}
+\usepackage[procnames]{listings}
+\pagenumbering{gobble}
+
+\newcommand{\assignment}
+{
+
+}\\
+\newcommand{\myinfo}{Darin Critchlow\\CSIS 2430-001}
+\newcommand{\assignmentDescription}
+{
+
+}
+\newcommand{\worked}
+{
+    Everything worked properly
+}
+\newcommand{\didntwork}
+{
+    Everything worked properly
+}
+\newcommand{\comments}
+{
+
+}
+\end{enumerate}
+}
+
+\begin{document}
+
+\LARGE\textbf{\assignment{}}\\
+\normalsize
+\myinfo{}\\
+
+\textbf{\underline{Objective:}}\\
+
+\textbf{\assignmentDescription{}}
+
+\textbf{\underline{What Worked:}}\\\\
+\worked{}\\
+
+\textbf{\underline{What Didn't Work:}}\\\\
+\didntwork{}\\
+
+\pagebreak
+\textbf{\underline{Comments:}}\\\\
+\comments{}
+
+\pagebreak
+\definecolor{keywords}{RGB}{255,127,0}
+\definecolor{comments}{RGB}{169,169,169}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{46,139,87}
+
+\lstset{language=Python,
+        basicstyle=\ttfamily\small,
+        keywordstyle=\color{keywords},
+        commentstyle=\color{comments},
+        stringstyle=\color{green},
+        showstringspaces=false,
+        identifierstyle=\color{black},
+        procnamekeys={def,class}}
+\textbf{\underline{Code:}}
+\lstinputlisting[language=Python]{<sourcefile>.py}
+\end{document}
