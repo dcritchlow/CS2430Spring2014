@@ -1,30 +1,76 @@
 % HuffmanCoding.tex
 \documentclass[12pt,letterpaper]{letter}
-\usepackage{fullpage}
+\usepackage{fullpage,color}
+\usepackage[procnames]{listings}
 \pagenumbering{gobble}
 
 \newcommand{\assignment}{Huffman Coding\\}
 \newcommand{\myinfo}{Darin Critchlow\\CSIS 2430-001}
-\newcommand{\assignmentDescription}{
+\newcommand{\assignmentDescription}
+{
 Implement Huffman Coding
+\begin{enumerate}\setlength\itemindent{0.5cm}
+{
+\item Use this file: Metamorphosis.txt
+\item Convert the file to binary and measure the size.
+\item Implement Huffman Coding to compress the file. (You will calculate the frequencies of all punctuations, etc., build a tree, then use the tree to compress the file (remember, it will be in BINARY - LEAVE IT in this format.)
+\item Measure the newly compressed file.
+\item Answer the question: What is the delta shrinkage (Entropy) from the first file to the second?
+\item Use the frequencies found on page 771 \#27 and reimplement.
+\item Measure the compression again.
+\item Compare\//contrast (what did you find?, why was there much of a difference?, etc.)
+}\end{enumerate}
+}
+\newcommand{\worked}{Everything worked properly}
+\newcommand{\didntwork}{Everything worked properly}
+\newcommand{\comments}
+{
+    As per our discussion in class, you need to follow these steps to make Huffman coding work as follows:
 \begin{enumerate}
-    \item Use this file: Metamorphosis.txt
-    \item Convert the file to binary and measure the size.
-    \item Implement Huffman Coding to compress the file. (You will calculate the frequencies of all punctuations, etc., build a tree, then use the tree to compress the file (remember, it will be in BINARY - LEAVE IT in this format.)
-    \item Measure the newly compressed file.
-    \item Answer the question: What is the delta shrinkage (Entropy) from the first file to the second?
-    \item Use the frequencies found on page 771 \#27 and reimplement.
-    \item Measure the compression again.
-    \item Compare\//contrast \(what did you find?, why was there much of a difference?, etc.\)
+{
+    \item As a baseline, make a copy of the Metamorphosis file and save it as a binary file.
+    \item With your programming language, read in the file and calculate the frequency of all of the letters and characters (including spaces).
+    \item Build your tree (good example in the book -- chapter 11.2?) from the frequencies.
+    \item From your text file, use the tree you just created to recode the letters to the new variable bits from your tree in \#3 and save it as a second binary file.
+    \item Compare binary file in \#1 to the one in \#4 and you should see a reduction (compression) of \emph{x}\%. Remember, all of your answers should be about the same within a small error.
+}
 \end{enumerate}
 }
 
 \begin{document}
 
-\texttt{\LARGE{\assignment{}}}\\
-\myinfo{}\\\\
+\LARGE\textbf{\assignment{}}\\
+\normalsize
+\myinfo{}\\
 
-\underline{Objective:}\\\\
-\hangindent=0.5cm \textsf{\assignmentDescription{}}
+\textbf{\underline{Objective:}}\\
 
+\textbf{\assignmentDescription{}}
+
+\textbf{\underline{What Worked:}}\\\\
+\worked{}\\
+
+\textbf{\underline{What Didn't Work:}}\\\\
+\didntwork{}\\
+
+\pagebreak
+\textbf{\underline{Comments:}}\\\\
+\comments{}
+
+\pagebreak
+\definecolor{keywords}{RGB}{255,127,0}
+\definecolor{comments}{RGB}{169,169,169}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{46,139,87}
+
+\lstset{language=Python,
+        basicstyle=\ttfamily\small,
+        keywordstyle=\color{keywords},
+        commentstyle=\color{comments},
+        stringstyle=\color{green},
+        showstringspaces=false,
+        identifierstyle=\color{black},
+        procnamekeys={def,class}}
+\textbf{\underline{Code:}}
+\lstinputlisting[language=Python]{huffman.py}
 \end{document}
