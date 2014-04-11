@@ -1,21 +1,27 @@
-% <filename>.tex
+% caesar.tex
 \documentclass[12pt,letterpaper]{letter}
 \usepackage{fullpage,color}
 \usepackage[procnames]{listings}
 \pagenumbering{gobble}
 
-\newcommand{\assignment}{}
+\newcommand{\assignment}{Caesar Cipher}
 \newcommand{\myinfo}
 {Darin Critchlow
 \\CSIS 2430-001}
 \newcommand{\assignmentDescription}
-{}
+{Implement a program that will take ANY such formula for the Caesar Cipher.  You will use\textbackslash{need} this for the first Midterm exam.}
 \newcommand{\worked}
-{Everything worked properly}
+{
+Everything worked properly
+}
 \newcommand{\didntwork}
-{Everything worked properly}
+{
+I had to make sure that I was always working with uppercase strings
+}
 \newcommand{\comments}
-{}
+{
+It was definitely more fun to implement the “affine cipher” version.
+}
 
 \begin{document}
 
@@ -55,5 +61,5 @@
         identifierstyle=\color{black},
         procnamekeys={def,class}}
 \textbf{\underline{Code:}}
-\lstinputlisting[language=Python]{<sourcefile>.py}
+\lstinputlisting[language=Python]{caesar-cipher-any.py}
 \end{document}

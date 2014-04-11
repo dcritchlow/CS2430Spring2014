@@ -24,17 +24,21 @@ def decipher(a, b, x, mod):
     return (inv(a, mod) * (x - b)) % mod
 
 def encrypt(plaintext, a, b):
-    return ''.join(char_from_int(encipher(a, b, int_from_char(letter), mod)) for letter in plaintext)
+    return ''.join(char_from_int(encipher(
+        a, b, int_from_char(letter), mod)) for letter in plaintext)
 
 def decrypt(ciphertext, a, b):
-    return ''.join(char_from_int(decipher(a, b, int_from_char(letter), mod)) for letter in ciphertext)
+    return ''.join(char_from_int(decipher(
+        a, b, int_from_char(letter), mod)) for letter in ciphertext)
 
 if __name__ == "__main__":
     print 'Caser Cipher with "affine cipher" f (p) = (ap + b) mod 26'
-    plaintext = raw_input('\nEnter plain text\n').replace(" ","").upper()
+    plaintext = raw_input(
+        '\nEnter plain text\n').replace(" ","").upper()
     a = int(raw_input('\nEnter "a" eg. "(ap + b)"\n'))
     b = int(raw_input('\nEnter "b" eg. "(ap + b)"\n'))
-    mod = int(raw_input('\nEnter "mod" value for your language. eg "26" for English\n'))
+    mod = int(raw_input(
+        '\nEnter "mod" value for your language. eg "26" for English\n'))
     if gcd(a,b) == 1:
         ciphertext = encrypt(plaintext, a, b)
         decryptedtext = decrypt(ciphertext, a, b)
