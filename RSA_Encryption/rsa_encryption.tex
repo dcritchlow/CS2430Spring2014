@@ -1,0 +1,61 @@
+% <filename>.tex
+\documentclass[12pt,letterpaper]{letter}
+\usepackage{fullpage,color,graphicx}
+\usepackage[procnames]{listings}
+\pagenumbering{gobble}
+
+\newcommand{\assignment}{RSA Encryption}
+\newcommand{\myinfo}
+{Darin Critchlow
+\\CSIS 2430-001}
+\newcommand{\assignmentDescription}
+{Your assignment is to encrypt the following message "The Queen Can't Roll When Sand is in the Jar" using the values for $p=71$, $q=67$, and $e=17$.}
+\newcommand{\worked}
+{I was able to reuse the code that I had for modular exponentiation. I also used much of what I had already for the Caesar cipher.}
+\newcommand{\didntwork}
+{I had to implement my own way to split up the letter blocks}
+\newcommand{\comments}
+{I enjoyed walking through and studying the operations of RSA encryption. I was glad that I was able to use the function that I wrote to split up the letter blocks in more than one function in my code.}
+
+\begin{document}
+
+\LARGE\textbf{\assignment{}}
+
+\normalsize\myinfo{}
+
+\textbf{\underline{Objective:}}
+
+\textbf{\assignmentDescription{}}
+
+\textbf{\underline{What Worked:}}
+
+\worked{}
+
+\textbf{\underline{What Didn't Work:}}
+
+\didntwork{}
+
+%\pagebreak
+\textbf{\underline{Comments:}}
+
+\comments{}
+
+\pagebreak
+\definecolor{keywords}{RGB}{255,127,0}
+\definecolor{comments}{RGB}{169,169,169}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{46,139,87}
+
+\lstset{language=Python,
+        basicstyle=\ttfamily\small,
+        keywordstyle=\color{keywords},
+        commentstyle=\color{comments},
+        stringstyle=\color{green},
+        showstringspaces=false,
+        identifierstyle=\color{black},
+        procnamekeys={def,class}}
+\textbf{\underline{Code:}}
+\lstinputlisting[language=Python]{rsa_encryption.py}
+
+\includegraphics[width=470pt]{rsa_encryption}
+\end{document}

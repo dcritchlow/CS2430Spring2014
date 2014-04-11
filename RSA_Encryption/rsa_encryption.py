@@ -1,6 +1,6 @@
-# =========================================================================== #
+# ===================================================================#
 #    Functions
-# =========================================================================== #
+# ===================================================================#
 
 ''' Give a letter a number value '''
 def letterToNumber(message):
@@ -29,8 +29,11 @@ def numberToLetter(message):
         letterText += str(chr(l))
     return letterText
 
-''' Express GCD as a linear combination gcd(a,b) = sa + tb
-    http://en.wikibooks.org/wiki/Algorithm_Implementation/Mathematics/Extended_Euclidean_algorithm '''
+    '''
+    Express GCD as a linear combination gcd(a,b) = sa + tb
+    http://en.wikibooks.org/wiki/Algorithm_Implementation/
+    Mathematics/Extended_Euclidean_algorithm
+    '''
 def extended_eculidean_gcd(a, b):
     x,y, u,v = 0,1, 1,0
     while a != 0:
@@ -104,9 +107,9 @@ def rsa_decryption(p,q,e,numbers):
         decrypted += str(modular_exponentiation(num,d,n)) +' '
     return decrypted
 
-# =========================================================================== #
+# ===================================================================#
 #    Main
-# =========================================================================== #
+# ===================================================================#
 
 if __name__ == '__main__':
     message = "The Queen Can't Roll When Sand is in the Jar"
@@ -116,24 +119,4 @@ if __name__ == '__main__':
     encrypted = rsa_encryption(71, 67, 17, messageSplit)
     print '\nMessage encrypted:',encrypted
     decrypted = rsa_decryption(71, 67, 17, encrypted)
-    print '\nMessage decrypted:', numberToLetter(decrypted)
-
-
-    message = "KING"
-    print '\nGiven message:', message
-    messageNumber = letterToNumber(message)
-    messageSplit = splitLetterBlocks(messageNumber, 4)
-    encrypted = rsa_encryption(43, 61, 13, messageSplit)
-    print '\nMessage encrypted:',encrypted
-    decrypted = rsa_decryption(43, 61, 13, encrypted)
-    print '\nMessage decrypted:', numberToLetter(decrypted)
-
-
-    message = "BALL"
-    print '\nGiven message:', message
-    messageNumber = letterToNumber(message)
-    messageSplit = splitLetterBlocks(messageNumber, 4)
-    encrypted = rsa_encryption(37, 73, 7, messageSplit)
-    print '\nMessage encrypted:',encrypted
-    decrypted = rsa_decryption(37, 73, 7, encrypted)
     print '\nMessage decrypted:', numberToLetter(decrypted)
