@@ -1,0 +1,48 @@
+*Currency
+	+ convert()
+	*Dollar
+	*Euro
+*Distance
+	+ convert()
+	*Kilometer
+	*Mile
+*People
+	+ name
+	*Parents
+	*Grandparents
+		*Oma
+		*Opa
+*City
+	- _starting_city
+	*Chicago
+	*Nashville, Tn
+	*Rostock 
+	*Lubeck (home of the best marzipan) 
+	*Hamburg (Oma/Opa want to drive under the river - a taxi can do this as well) 
+	*Bremen 
+	*Hannover (Consumer Electronics haven - purchase each a new iPad at 180 Euros each) 
+	*Kassel 
+	*Dusseldorf 
+	*Koln (taxi will be needed to visit the castle 10km away from the hauptbahnhof) 
+	*St. Augustine 
+	*Bonn 
+	*Wiesbaden 
+	** Frankfurt 
+	*Mannheim 
+	*Karlsruhe 
+	*Baden Baden (Oma wants to visit a Spa here, therefore, you will need to spend the day) 
+	** Stuttgart 
+	** Munchen (Munich) 
+	*Nurnberg 
+	*Dresden 
+	*Leipzig 
+	** Berlin 
+	*Basel, Switzerland (Opa and Dad want to purchase a nice watch and this is the best place for such a purchase - you will be spending $6k/watch) 
+*Vehicle
+	*car
+	*train
+	*taxi
+*Route
+*Fuel
+	*Diesel
+	*Petrol
