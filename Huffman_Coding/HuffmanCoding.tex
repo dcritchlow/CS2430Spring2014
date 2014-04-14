@@ -1,6 +1,6 @@
 % HuffmanCoding.tex
 \documentclass[12pt,letterpaper]{letter}
-\usepackage{fullpage,color}
+\usepackage{fullpage,color,fancyhdr,graphicx}
 \usepackage[procnames]{listings}
 \pagenumbering{gobble}
 
@@ -25,16 +25,39 @@ Implement Huffman Coding
 \newcommand{\didntwork}{Everything worked properly}
 \newcommand{\comments}
 {
-    As per our discussion in class, you need to follow these steps to make Huffman coding work as follows:
-\begin{enumerate}
-{
-    \item As a baseline, make a copy of the Metamorphosis file and save it as a binary file.
-    \item With your programming language, read in the file and calculate the frequency of all of the letters and characters (including spaces).
-    \item Build your tree (good example in the book -- chapter 11.2?) from the frequencies.
-    \item From your text file, use the tree you just created to recode the letters to the new variable bits from your tree in \#3 and save it as a second binary file.
-    \item Compare binary file in \#1 to the one in \#4 and you should see a reduction (compression) of \emph{x}\%. Remember, all of your answers should be about the same within a small error.
-}
-\end{enumerate}
+The first Huffman code resulted in a 46.28\% compression using the
+binary code taken from the frequency of letters in the Metamorphosis
+document. When I started the first part of this assignment I was sure
+that the compression would be much greater than just using the
+frequencies in the second portion. As I was coding and looking at the
+binary codes that it produced I was pleased with how many bits were
+shaved off from the original.
+
+When I was researching Huffman code I realized that the less characters
+you have in your input the compression is much higher. As I was pondering
+this I was trying to figure out how this would in fact be possible. With
+the first part of the assignment I had covered everything from spaces,
+carriage returns, tabs, etc. How would it be possible that less characters
+would give greater compression?
+
+I started to code the final portion of this assignment and as I was
+working through the code and looking at my print statements as I was
+forming the Huffman code there definitely was less characters and bits.
+Even though there were less bits in the Huffman code in the second part
+it did not take any bits off of the carriage returns, tabs, spaces,
+etc \ldots
+
+I calculated the size of the second converted file by counting how many
+alpha characters that had Huffman codes associated with it and also how
+many non-alphanumeric characters there were. I then multiplied the
+non-alphanumeric characters by 8 bits and then added that to the number
+of alpha characters. The resulting compression was good, 37.24\%, but
+not quite as high as the first portion of the assignment.
+
+The non-alphanumeric codes that did not get converted was the difference
+and it was interesting to see how much they would actually play a role.
+This exercise was nice to be able to go through some other code and
+research different ways to form these data structures in Python.
 }
 
 \begin{document}
@@ -58,6 +81,8 @@ Implement Huffman Coding
 \comments{}
 
 \pagebreak
+\pagestyle{fancy}
+\lfoot{[1] TechRepublic. Huffman coding in Python. [Online] Available from: http://www.techrepublic.com/article/huffman-coding-in-python/ [Accessed 7 Apr 2014].}
 \definecolor{keywords}{RGB}{255,127,0}
 \definecolor{comments}{RGB}{169,169,169}
 \definecolor{red}{RGB}{160,0,0}
@@ -71,6 +96,9 @@ Implement Huffman Coding
         showstringspaces=false,
         identifierstyle=\color{black},
         procnamekeys={def,class}}
-\textbf{\underline{Code:}}
+\textbf{Code:}
 \lstinputlisting[language=Python]{huffman.py}
+\pagebreak
+\pagestyle{empty}
+\includegraphics[width=470pt]{huffman.png}
 \end{document}
